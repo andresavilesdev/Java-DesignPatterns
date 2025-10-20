@@ -3,10 +3,14 @@ package com.java;
 import com.java.domain.Address;
 import com.java.domain.Contact;
 import com.java.domain.Phone;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Employee{
 
     private int age;
@@ -16,29 +20,16 @@ public class Employee{
     private List<Phone> phones;
     private List<Contact> contacts;
 
-    public Employee() {
-    }
-
-    public Employee(int age, String name, String gender, Address address, List<Phone> phones, List<Contact> contacts) {
-        this.age = age;
-        this.name = name;
-        this.gender = gender;
-        this.address = address;
-        this.phones = phones;
-        this.contacts = contacts;
-    }
-
+    @AllArgsConstructor
+    @NoArgsConstructor
     public static class EmployeeBuilder implements IBuilder<Employee>{
 
         private int age;
         private String name;
         private String gender;
         private Address address;
-        private List<Phone> phones = new ArrayList<>();
-        private List<Contact> contacts =  new ArrayList<>();
-
-        public EmployeeBuilder() {
-        }
+        private final List<Phone> phones = new ArrayList<>();
+        private final List<Contact> contacts =  new ArrayList<>();
 
         public EmployeeBuilder setAge(int age) {
             this.age = age;
@@ -90,55 +81,6 @@ public class Employee{
         public Employee build() {
             return new Employee(age, name, gender, address, phones, contacts);
         }
-    }
-
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
-    }
-
-    public List<Phone> getPhones() {
-        return phones;
-    }
-
-    public void setPhones(List<Phone> phones) {
-        this.phones = phones;
-    }
-
-    public List<Contact> getContacts() {
-        return contacts;
-    }
-
-    public void setContacts(List<Contact> contacts) {
-        this.contacts = contacts;
     }
 
     @Override

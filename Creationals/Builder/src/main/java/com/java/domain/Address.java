@@ -1,5 +1,8 @@
 package com.java.domain;
 
+import lombok.Data;
+
+@Data
 public class Address {
 
         private String mainAddress;
@@ -14,38 +17,6 @@ public class Address {
         this.mainAddress = mainAddress;
         this.city = city;
         this.country = country;
-        this.cp = cp;
-    }
-
-    public String getMainAddress() {
-        return mainAddress;
-    }
-
-    public void setMainAddress(String mainAddress) {
-        this.mainAddress = mainAddress;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public String getCp() {
-        return cp;
-    }
-
-    public void setCp(String cp) {
         this.cp = cp;
     }
 
